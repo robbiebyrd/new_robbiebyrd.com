@@ -6,22 +6,36 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "types:generate": "openapi-typescript ../backend/src/extensions/documentation/documentation/1.0.0/full_documentation.json -o api/strapi.d.ts",
+    "test:ts": "tsc --noEmit"
   },
   "dependencies": {
+    "@awesome.me/kit-20210c7212": "^1.0.4",
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "@fortawesome/fontawesome-pro": "^6.7.2",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "axios": "^1.8.4",
+    "micromark-extension-gfm": "^3.0.0",
+    "next": "^15.2.4",
+    "openapi-typescript": "^7.6.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.2.4"
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "showdown": "^2.1.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "@types/showdown": "^2",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
