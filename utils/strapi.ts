@@ -1,0 +1,2 @@
+export const authHeaders = { headers: { Authorization: `Bearer cddf5353967b3658fe9e170ab9dc391916bbc6ab1152f139b04459ad5f6a90f2dcd0e12f0d377aef3af3e193a7df9bf832cce1bdc8384412c89bd9d22e852853ba78ee75fc1914ec2d2d2137cb418dbbca63d7bf29dcab43ed28049aeca43290c185dd05ba42d7b09af45aab79e9b154e51c9410fad3bdf8359c3f4e25dfa358` } }
+export const host = "https://api.robbiebyrd.com/api"

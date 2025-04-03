@@ -4,22 +4,6 @@
  */
 
 export interface paths {
-    "/about": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get: operations["get/about"];
-        put: operations["put/about"];
-        post?: never;
-        delete: operations["delete/about"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
     "/clients": {
         parameters: {
             query?: never;
@@ -95,6 +79,22 @@ export interface paths {
         put: operations["put/global"];
         post?: never;
         delete: operations["delete/global"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/home": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["get/home"];
+        put: operations["put/home"];
+        post?: never;
+        delete: operations["delete/home"];
         options?: never;
         head?: never;
         patch?: never;
@@ -1493,192 +1493,6 @@ export interface components {
                 details?: Record<string, never>;
             };
         };
-        AboutRequest: {
-            data: {
-                title?: string;
-                blocks?: (components["schemas"]["SharedMediaComponent"] | components["schemas"]["SharedQuoteComponent"] | components["schemas"]["SharedRichTextComponent"] | components["schemas"]["SharedSliderComponent"])[];
-                locale?: string;
-                localizations?: (number | string)[];
-            };
-        };
-        AboutListResponse: {
-            data?: components["schemas"]["About"][];
-            meta?: {
-                pagination?: {
-                    page?: number;
-                    pageSize?: number;
-                    pageCount?: number;
-                    total?: number;
-                };
-            };
-        };
-        About: {
-            id?: number;
-            documentId?: string;
-            title?: string;
-            blocks?: (components["schemas"]["SharedMediaComponent"] | components["schemas"]["SharedQuoteComponent"] | components["schemas"]["SharedRichTextComponent"] | components["schemas"]["SharedSliderComponent"])[];
-            /** Format: date-time */
-            createdAt?: string;
-            /** Format: date-time */
-            updatedAt?: string;
-            /** Format: date-time */
-            publishedAt?: string;
-            createdBy?: {
-                id?: number;
-                documentId?: string;
-            };
-            updatedBy?: {
-                id?: number;
-                documentId?: string;
-            };
-            locale?: string;
-            localizations?: {
-                id?: number;
-                documentId?: string;
-                title?: string;
-                blocks?: (components["schemas"]["SharedMediaComponent"] | components["schemas"]["SharedQuoteComponent"] | components["schemas"]["SharedRichTextComponent"] | components["schemas"]["SharedSliderComponent"])[];
-                /** Format: date-time */
-                createdAt?: string;
-                /** Format: date-time */
-                updatedAt?: string;
-                /** Format: date-time */
-                publishedAt?: string;
-                createdBy?: {
-                    id?: number;
-                    documentId?: string;
-                };
-                updatedBy?: {
-                    id?: number;
-                    documentId?: string;
-                };
-                locale?: string;
-                localizations?: {
-                    id?: number;
-                    documentId?: string;
-                }[];
-            }[];
-        };
-        AboutResponse: {
-            data?: components["schemas"]["About"];
-            meta?: Record<string, never>;
-        };
-        SharedMediaComponent: {
-            id?: number;
-            /** @enum {string} */
-            __component?: "shared.media";
-            file?: {
-                id?: number;
-                documentId?: string;
-                name?: string;
-                alternativeText?: string;
-                caption?: string;
-                width?: number;
-                height?: number;
-                formats?: unknown;
-                hash?: string;
-                ext?: string;
-                mime?: string;
-                /** Format: float */
-                size?: number;
-                url?: string;
-                previewUrl?: string;
-                provider?: string;
-                provider_metadata?: unknown;
-                related?: {
-                    id?: number;
-                    documentId?: string;
-                }[];
-                folder?: {
-                    id?: number;
-                    documentId?: string;
-                };
-                folderPath?: string;
-                /** Format: date-time */
-                createdAt?: string;
-                /** Format: date-time */
-                updatedAt?: string;
-                /** Format: date-time */
-                publishedAt?: string;
-                createdBy?: {
-                    id?: number;
-                    documentId?: string;
-                };
-                updatedBy?: {
-                    id?: number;
-                    documentId?: string;
-                };
-                locale?: string;
-                localizations?: {
-                    id?: number;
-                    documentId?: string;
-                }[];
-            };
-        };
-        SharedQuoteComponent: {
-            id?: number;
-            /** @enum {string} */
-            __component?: "shared.quote";
-            title?: string;
-            body?: string;
-        };
-        SharedRichTextComponent: {
-            id?: number;
-            /** @enum {string} */
-            __component?: "shared.rich-text";
-            body?: string;
-        };
-        SharedSliderComponent: {
-            id?: number;
-            /** @enum {string} */
-            __component?: "shared.slider";
-            files?: {
-                id?: number;
-                documentId?: string;
-                name?: string;
-                alternativeText?: string;
-                caption?: string;
-                width?: number;
-                height?: number;
-                formats?: unknown;
-                hash?: string;
-                ext?: string;
-                mime?: string;
-                /** Format: float */
-                size?: number;
-                url?: string;
-                previewUrl?: string;
-                provider?: string;
-                provider_metadata?: unknown;
-                related?: {
-                    id?: number;
-                    documentId?: string;
-                }[];
-                folder?: {
-                    id?: number;
-                    documentId?: string;
-                };
-                folderPath?: string;
-                /** Format: date-time */
-                createdAt?: string;
-                /** Format: date-time */
-                updatedAt?: string;
-                /** Format: date-time */
-                publishedAt?: string;
-                createdBy?: {
-                    id?: number;
-                    documentId?: string;
-                };
-                updatedBy?: {
-                    id?: number;
-                    documentId?: string;
-                };
-                locale?: string;
-                localizations?: {
-                    id?: number;
-                    documentId?: string;
-                }[];
-            }[];
-        };
         ClientRequest: {
             data: {
                 title?: string;
@@ -1864,6 +1678,9 @@ export interface components {
                             documentId?: string;
                         }[];
                     };
+                    color?: string;
+                    borderColor?: string;
+                    textColor?: string;
                     /** Format: date-time */
                     createdAt?: string;
                     /** Format: date-time */
@@ -2014,6 +1831,8 @@ export interface components {
                         documentId?: string;
                     }[];
                 };
+                /** @enum {string} */
+                Type?: "Part-Time" | "Full-Time" | "Volunteer" | "Freelance";
                 /** Format: date-time */
                 createdAt?: string;
                 /** Format: date-time */
@@ -2098,6 +1917,8 @@ export interface components {
                 link?: string;
                 /** @example string or id */
                 logo?: number | string;
+                /** @enum {string} */
+                Type?: "Part-Time" | "Full-Time" | "Volunteer" | "Freelance";
                 locale?: string;
                 localizations?: (number | string)[];
             };
@@ -2274,6 +2095,9 @@ export interface components {
                         documentId?: string;
                     }[];
                 };
+                color?: string;
+                borderColor?: string;
+                textColor?: string;
                 /** Format: date-time */
                 createdAt?: string;
                 /** Format: date-time */
@@ -2424,6 +2248,8 @@ export interface components {
                     documentId?: string;
                 }[];
             };
+            /** @enum {string} */
+            Type?: "Part-Time" | "Full-Time" | "Volunteer" | "Freelance";
             /** Format: date-time */
             createdAt?: string;
             /** Format: date-time */
@@ -2504,6 +2330,8 @@ export interface components {
                         documentId?: string;
                     }[];
                 };
+                /** @enum {string} */
+                Type?: "Part-Time" | "Full-Time" | "Volunteer" | "Freelance";
                 /** Format: date-time */
                 createdAt?: string;
                 /** Format: date-time */
@@ -2535,7 +2363,6 @@ export interface components {
                 /** @example string or id */
                 favicon?: number | string;
                 siteDescription: string;
-                defaultSeo?: components["schemas"]["SharedSeoComponent"];
                 locale?: string;
                 localizations?: (number | string)[];
             };
@@ -2771,7 +2598,6 @@ export interface components {
                 }[];
             };
             siteDescription: string;
-            defaultSeo?: components["schemas"]["SharedSeoComponent"];
             /** Format: date-time */
             createdAt?: string;
             /** Format: date-time */
@@ -2839,7 +2665,6 @@ export interface components {
                     }[];
                 };
                 siteDescription?: string;
-                defaultSeo?: components["schemas"]["SharedSeoComponent"];
                 /** Format: date-time */
                 createdAt?: string;
                 /** Format: date-time */
@@ -2865,37 +2690,343 @@ export interface components {
             data?: components["schemas"]["Global"];
             meta?: Record<string, never>;
         };
-        SharedSeoComponent: {
+        HomeRequest: {
+            data: {
+                experiences?: (number | string)[];
+                locale?: string;
+                localizations?: (number | string)[];
+            };
+        };
+        HomeListResponse: {
+            data?: components["schemas"]["Home"][];
+            meta?: {
+                pagination?: {
+                    page?: number;
+                    pageSize?: number;
+                    pageCount?: number;
+                    total?: number;
+                };
+            };
+        };
+        Home: {
             id?: number;
-            metaTitle?: string;
-            metaDescription?: string;
-            shareImage?: {
+            documentId?: string;
+            experiences?: {
                 id?: number;
                 documentId?: string;
                 name?: string;
-                alternativeText?: string;
-                caption?: string;
-                width?: number;
-                height?: number;
-                formats?: unknown;
-                hash?: string;
-                ext?: string;
-                mime?: string;
-                /** Format: float */
-                size?: number;
-                url?: string;
-                previewUrl?: string;
-                provider?: string;
-                provider_metadata?: unknown;
-                related?: {
+                /** Format: date */
+                start?: string;
+                /** Format: date */
+                end?: string;
+                skills?: {
                     id?: number;
                     documentId?: string;
+                    name?: string;
+                    yearsOfExperience?: number;
+                    relatedSkills?: {
+                        id?: number;
+                        documentId?: string;
+                    }[];
+                    description?: string;
+                    skill_type?: {
+                        id?: number;
+                        documentId?: string;
+                        sort?: number;
+                        name?: string;
+                        plural?: string;
+                        description?: string;
+                        /** Format: date-time */
+                        createdAt?: string;
+                        /** Format: date-time */
+                        updatedAt?: string;
+                        /** Format: date-time */
+                        publishedAt?: string;
+                        createdBy?: {
+                            id?: number;
+                            documentId?: string;
+                            firstname?: string;
+                            lastname?: string;
+                            username?: string;
+                            /** Format: email */
+                            email?: string;
+                            resetPasswordToken?: string;
+                            registrationToken?: string;
+                            isActive?: boolean;
+                            roles?: {
+                                id?: number;
+                                documentId?: string;
+                                name?: string;
+                                code?: string;
+                                description?: string;
+                                users?: {
+                                    id?: number;
+                                    documentId?: string;
+                                }[];
+                                permissions?: {
+                                    id?: number;
+                                    documentId?: string;
+                                    action?: string;
+                                    actionParameters?: unknown;
+                                    subject?: string;
+                                    properties?: unknown;
+                                    conditions?: unknown;
+                                    role?: {
+                                        id?: number;
+                                        documentId?: string;
+                                    };
+                                    /** Format: date-time */
+                                    createdAt?: string;
+                                    /** Format: date-time */
+                                    updatedAt?: string;
+                                    /** Format: date-time */
+                                    publishedAt?: string;
+                                    createdBy?: {
+                                        id?: number;
+                                        documentId?: string;
+                                    };
+                                    updatedBy?: {
+                                        id?: number;
+                                        documentId?: string;
+                                    };
+                                    locale?: string;
+                                    localizations?: {
+                                        id?: number;
+                                        documentId?: string;
+                                    }[];
+                                }[];
+                                /** Format: date-time */
+                                createdAt?: string;
+                                /** Format: date-time */
+                                updatedAt?: string;
+                                /** Format: date-time */
+                                publishedAt?: string;
+                                createdBy?: {
+                                    id?: number;
+                                    documentId?: string;
+                                };
+                                updatedBy?: {
+                                    id?: number;
+                                    documentId?: string;
+                                };
+                                locale?: string;
+                                localizations?: {
+                                    id?: number;
+                                    documentId?: string;
+                                }[];
+                            }[];
+                            blocked?: boolean;
+                            preferedLanguage?: string;
+                            /** Format: date-time */
+                            createdAt?: string;
+                            /** Format: date-time */
+                            updatedAt?: string;
+                            /** Format: date-time */
+                            publishedAt?: string;
+                            createdBy?: {
+                                id?: number;
+                                documentId?: string;
+                            };
+                            updatedBy?: {
+                                id?: number;
+                                documentId?: string;
+                            };
+                            locale?: string;
+                            localizations?: {
+                                id?: number;
+                                documentId?: string;
+                            }[];
+                        };
+                        updatedBy?: {
+                            id?: number;
+                            documentId?: string;
+                        };
+                        locale?: string;
+                        localizations?: {
+                            id?: number;
+                            documentId?: string;
+                        }[];
+                    };
+                    skill_level?: {
+                        id?: number;
+                        documentId?: string;
+                        sort?: number;
+                        name?: string;
+                        /** Format: date-time */
+                        createdAt?: string;
+                        /** Format: date-time */
+                        updatedAt?: string;
+                        /** Format: date-time */
+                        publishedAt?: string;
+                        createdBy?: {
+                            id?: number;
+                            documentId?: string;
+                        };
+                        updatedBy?: {
+                            id?: number;
+                            documentId?: string;
+                        };
+                        locale?: string;
+                        localizations?: {
+                            id?: number;
+                            documentId?: string;
+                        }[];
+                    };
+                    color?: string;
+                    borderColor?: string;
+                    textColor?: string;
+                    /** Format: date-time */
+                    createdAt?: string;
+                    /** Format: date-time */
+                    updatedAt?: string;
+                    /** Format: date-time */
+                    publishedAt?: string;
+                    createdBy?: {
+                        id?: number;
+                        documentId?: string;
+                    };
+                    updatedBy?: {
+                        id?: number;
+                        documentId?: string;
+                    };
+                    locale?: string;
+                    localizations?: {
+                        id?: number;
+                        documentId?: string;
+                    }[];
                 }[];
-                folder?: {
+                description?: string;
+                jobTitle?: string;
+                subtitle?: string;
+                summary?: string;
+                color?: string;
+                link?: string;
+                logo?: {
                     id?: number;
                     documentId?: string;
+                    name?: string;
+                    alternativeText?: string;
+                    caption?: string;
+                    width?: number;
+                    height?: number;
+                    formats?: unknown;
+                    hash?: string;
+                    ext?: string;
+                    mime?: string;
+                    /** Format: float */
+                    size?: number;
+                    url?: string;
+                    previewUrl?: string;
+                    provider?: string;
+                    provider_metadata?: unknown;
+                    related?: {
+                        id?: number;
+                        documentId?: string;
+                    }[];
+                    folder?: {
+                        id?: number;
+                        documentId?: string;
+                        name?: string;
+                        pathId?: number;
+                        parent?: {
+                            id?: number;
+                            documentId?: string;
+                        };
+                        children?: {
+                            id?: number;
+                            documentId?: string;
+                        }[];
+                        files?: {
+                            id?: number;
+                            documentId?: string;
+                            name?: string;
+                            alternativeText?: string;
+                            caption?: string;
+                            width?: number;
+                            height?: number;
+                            formats?: unknown;
+                            hash?: string;
+                            ext?: string;
+                            mime?: string;
+                            /** Format: float */
+                            size?: number;
+                            url?: string;
+                            previewUrl?: string;
+                            provider?: string;
+                            provider_metadata?: unknown;
+                            related?: {
+                                id?: number;
+                                documentId?: string;
+                            }[];
+                            folder?: {
+                                id?: number;
+                                documentId?: string;
+                            };
+                            folderPath?: string;
+                            /** Format: date-time */
+                            createdAt?: string;
+                            /** Format: date-time */
+                            updatedAt?: string;
+                            /** Format: date-time */
+                            publishedAt?: string;
+                            createdBy?: {
+                                id?: number;
+                                documentId?: string;
+                            };
+                            updatedBy?: {
+                                id?: number;
+                                documentId?: string;
+                            };
+                            locale?: string;
+                            localizations?: {
+                                id?: number;
+                                documentId?: string;
+                            }[];
+                        }[];
+                        path?: string;
+                        /** Format: date-time */
+                        createdAt?: string;
+                        /** Format: date-time */
+                        updatedAt?: string;
+                        /** Format: date-time */
+                        publishedAt?: string;
+                        createdBy?: {
+                            id?: number;
+                            documentId?: string;
+                        };
+                        updatedBy?: {
+                            id?: number;
+                            documentId?: string;
+                        };
+                        locale?: string;
+                        localizations?: {
+                            id?: number;
+                            documentId?: string;
+                        }[];
+                    };
+                    folderPath?: string;
+                    /** Format: date-time */
+                    createdAt?: string;
+                    /** Format: date-time */
+                    updatedAt?: string;
+                    /** Format: date-time */
+                    publishedAt?: string;
+                    createdBy?: {
+                        id?: number;
+                        documentId?: string;
+                    };
+                    updatedBy?: {
+                        id?: number;
+                        documentId?: string;
+                    };
+                    locale?: string;
+                    localizations?: {
+                        id?: number;
+                        documentId?: string;
+                    }[];
                 };
-                folderPath?: string;
+                /** @enum {string} */
+                Type?: "Part-Time" | "Full-Time" | "Volunteer" | "Freelance";
                 /** Format: date-time */
                 createdAt?: string;
                 /** Format: date-time */
@@ -2915,7 +3046,53 @@ export interface components {
                     id?: number;
                     documentId?: string;
                 }[];
+            }[];
+            /** Format: date-time */
+            createdAt?: string;
+            /** Format: date-time */
+            updatedAt?: string;
+            /** Format: date-time */
+            publishedAt?: string;
+            createdBy?: {
+                id?: number;
+                documentId?: string;
             };
+            updatedBy?: {
+                id?: number;
+                documentId?: string;
+            };
+            locale?: string;
+            localizations?: {
+                id?: number;
+                documentId?: string;
+                experiences?: {
+                    id?: number;
+                    documentId?: string;
+                }[];
+                /** Format: date-time */
+                createdAt?: string;
+                /** Format: date-time */
+                updatedAt?: string;
+                /** Format: date-time */
+                publishedAt?: string;
+                createdBy?: {
+                    id?: number;
+                    documentId?: string;
+                };
+                updatedBy?: {
+                    id?: number;
+                    documentId?: string;
+                };
+                locale?: string;
+                localizations?: {
+                    id?: number;
+                    documentId?: string;
+                }[];
+            }[];
+        };
+        HomeResponse: {
+            data?: components["schemas"]["Home"];
+            meta?: Record<string, never>;
         };
         SkillRequest: {
             data: {
@@ -2927,6 +3104,9 @@ export interface components {
                 skill_type?: number | string;
                 /** @example string or id */
                 skill_level?: number | string;
+                color?: string;
+                borderColor?: string;
+                textColor?: string;
                 locale?: string;
                 localizations?: (number | string)[];
             };
@@ -3100,6 +3280,9 @@ export interface components {
                         documentId?: string;
                     }[];
                 };
+                color?: string;
+                borderColor?: string;
+                textColor?: string;
                 /** Format: date-time */
                 createdAt?: string;
                 /** Format: date-time */
@@ -3129,6 +3312,9 @@ export interface components {
                 id?: number;
                 documentId?: string;
             };
+            color?: string;
+            borderColor?: string;
+            textColor?: string;
             /** Format: date-time */
             createdAt?: string;
             /** Format: date-time */
@@ -3786,6 +3972,9 @@ export interface components {
                         documentId?: string;
                     }[];
                 };
+                color?: string;
+                borderColor?: string;
+                textColor?: string;
                 /** Format: date-time */
                 createdAt?: string;
                 /** Format: date-time */
@@ -3871,6 +4060,8 @@ export interface components {
                         documentId?: string;
                     }[];
                 };
+                /** @enum {string} */
+                Type?: "Part-Time" | "Full-Time" | "Volunteer" | "Freelance";
                 /** Format: date-time */
                 createdAt?: string;
                 /** Format: date-time */
@@ -4103,228 +4294,6 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
-    "get/about": {
-        parameters: {
-            query?: {
-                /** @description Sort by attributes ascending (asc) or descending (desc) */
-                sort?: string;
-                /** @description Return page/pageSize (default: true) */
-                "pagination[withCount]"?: boolean;
-                /** @description Page number (default: 0) */
-                "pagination[page]"?: number;
-                /** @description Page size (default: 25) */
-                "pagination[pageSize]"?: number;
-                /** @description Offset value (default: 0) */
-                "pagination[start]"?: number;
-                /** @description Number of entities to return (default: 25) */
-                "pagination[limit]"?: number;
-                /** @description Fields to return (ex: title,author) */
-                fields?: string;
-                /** @description Relations to return */
-                populate?: string;
-                /** @description Filters to apply */
-                filters?: {
-                    [key: string]: unknown;
-                };
-                /** @description Locale to apply */
-                locale?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description OK */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["AboutResponse"];
-                };
-            };
-            /** @description Bad Request */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-            /** @description Unauthorized */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-            /** @description Forbidden */
-            403: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-            /** @description Not Found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-            /** @description Internal Server Error */
-            500: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    "put/about": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["AboutRequest"];
-            };
-        };
-        responses: {
-            /** @description OK */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["AboutResponse"];
-                };
-            };
-            /** @description Bad Request */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-            /** @description Unauthorized */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-            /** @description Forbidden */
-            403: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-            /** @description Not Found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-            /** @description Internal Server Error */
-            500: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    "delete/about": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description OK */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": number;
-                };
-            };
-            /** @description Bad Request */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-            /** @description Unauthorized */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-            /** @description Forbidden */
-            403: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-            /** @description Not Found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-            /** @description Internal Server Error */
-            500: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
     "get/clients": {
         parameters: {
             query?: {
@@ -5207,6 +5176,228 @@ export interface operations {
         };
     };
     "delete/global": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description OK */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": number;
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Error"];
+                };
+            };
+            /** @description Unauthorized */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Error"];
+                };
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Error"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Error"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Error"];
+                };
+            };
+        };
+    };
+    "get/home": {
+        parameters: {
+            query?: {
+                /** @description Sort by attributes ascending (asc) or descending (desc) */
+                sort?: string;
+                /** @description Return page/pageSize (default: true) */
+                "pagination[withCount]"?: boolean;
+                /** @description Page number (default: 0) */
+                "pagination[page]"?: number;
+                /** @description Page size (default: 25) */
+                "pagination[pageSize]"?: number;
+                /** @description Offset value (default: 0) */
+                "pagination[start]"?: number;
+                /** @description Number of entities to return (default: 25) */
+                "pagination[limit]"?: number;
+                /** @description Fields to return (ex: title,author) */
+                fields?: string;
+                /** @description Relations to return */
+                populate?: string;
+                /** @description Filters to apply */
+                filters?: {
+                    [key: string]: unknown;
+                };
+                /** @description Locale to apply */
+                locale?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description OK */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HomeResponse"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Error"];
+                };
+            };
+            /** @description Unauthorized */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Error"];
+                };
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Error"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Error"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Error"];
+                };
+            };
+        };
+    };
+    "put/home": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["HomeRequest"];
+            };
+        };
+        responses: {
+            /** @description OK */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HomeResponse"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Error"];
+                };
+            };
+            /** @description Unauthorized */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Error"];
+                };
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Error"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Error"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Error"];
+                };
+            };
+        };
+    };
+    "delete/home": {
         parameters: {
             query?: never;
             header?: never;

@@ -1,0 +1,14 @@
+@keyframes faded {
+  0%, 40% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  45% {
+    opacity:.5;
+    filter: blur(2px);
+  }
+  50%, 100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
